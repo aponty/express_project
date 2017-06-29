@@ -1,0 +1,4 @@
+node_modules/
+.env
+colorpalette.pdf
+public/bootstrap_minimal_template
