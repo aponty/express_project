@@ -4,7 +4,6 @@ const auth = require('../services/auth');
 const topicsModel = require('../models/topics');
 
 router.get('/', auth.restrict, (req, res) => {
-
     res.render('topics/index');
 });
 

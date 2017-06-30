@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>trel·lis - Home</title>
+    <title>trel·lis - Notes</title>
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,8 +30,8 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class='active'><a href="/profile">Home</a></li>
-                    <li><a href="/notes">Notes</a></li>
+                    <li><a href="/profile">Home</a></li>
+                    <li class='active'><a href="/notes">Notes</a></li>
                     <li><a href="/topic">Add Topic</a></li>
                     <li><a href="/resources">Resources</a></li>
                     <li class="dropdown">
@@ -51,20 +51,29 @@
     </div>
     <div class="container">
         <div class="jumbotron text-center">
-            <h1>PROFILE PAGE</h1>
+            <h1>NEW Note</h1>
             <p>just some filler text up in hurrjust some filler text up in hurrjust some filler text up in hurrjust some filler text up in hurrjust some filler text up in hurr</p>
         </div>
     </div>
-    <!-- TODO work on this section -->
-    <section>
-        Welcome to your profile, {{user.email}}
-
-        <button class='insomnia event eating'>ate foods</button>
-        <button class='insomnia event exercise'>work it girllll</button>
-        <button class='insomnia event meditate'>thinking sucks, stop that</button>
-
-    </section>
-
+    <div>
+        <section>
+            <h2>Add Note</h2>
+            <h3>Select Topic</h3>
+            <form class="new-note">
+                <select>
+                <option class="topic-select" value=insomnia>Insomnia</option>
+                <option class="topic-select" value=2>n/a</option>
+                <option class="topic-select" value=3>n/a</option>
+                <option class="topic-select" value=4>n/a</option>
+            </select>
+                <br />
+                <label>Note:</label>
+                <textarea class="note-text-input"></textarea>
+                <br />
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </div>
     <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
         <div class="container">
             <div class="navbar-text pull-left">
@@ -73,8 +82,8 @@
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/script.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

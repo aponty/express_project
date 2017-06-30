@@ -32,10 +32,12 @@ app.use(cookieParser());
 const users = require('./controllers/users.js');
 const topics = require('./controllers/topics.js')
 const resources = require('./controllers/resources.js')
+const notes = require('./controllers/notes.js')
 app.get('/', (req, res) => res.render('index'));
 
 app.use('/topic', topics)
 app.use('/resources', resources)
+app.use('/notes', notes)
 app.use('/', users);
 
 app.listen(port, () => console.log(`Server listening on ${port}`));

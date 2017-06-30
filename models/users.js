@@ -1,7 +1,8 @@
 const bcrypt = require('bcryptjs');
 const db = require('../models/setup');
 const userModel = {}
-
+//hardcoding insomnia in here because I don't want to setup a check for adding a disease before
+//allowing access to the notes
 userModel.create = user => {
     const password = bcrypt.hashSync(user.password, 10);
 
