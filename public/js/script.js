@@ -1,4 +1,4 @@
-$(()=>{
+$(() => {
     console.log('linked')
 
     $('.topic-select-enter').on('click', e => {
@@ -10,9 +10,7 @@ $(()=>{
             method: 'PUT',
             url: '/addusertopic',
             data: { topic },
-            success: res => {
-                window.location.replace(`/resources/${topic}`)
-            }
+            success: res => window.location.replace(`/resources/${topic}`)
         })
     })
 
@@ -31,32 +29,29 @@ $(()=>{
         })
     })
 
-    document.querySelectorAll('.delete').forEach(x => {
-        const val = x.value;
-        x.addEventListener('click', () => {
+    document.querySelectorAll('.delete').forEach(el => {
+        const val = el.value;
+        el.addEventListener('click', () => {
             $.ajax({
                 method: 'DELETE',
                 url: '/notes',
                 data: { val },
-                success: res => {
-                    location.reload()
-                }
+                success: res => location.reload()
             })
         })
     })
 
-
-
-
-
-
-
-
-
-
-
-
-
+    $('.insomnia.event').on('click', el => {
+        el.preventDefault();
+        const data = el.target.value;
+        console.log(data)
+        $.ajax({
+            method: "POST",
+            url: '/events',
+            data: { data },
+            success: res => location.reload()
+        })
+    })
 
 
 

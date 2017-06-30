@@ -11,6 +11,4 @@ router.get('/insomnia', auth.restrict, (req, res) => {
     res.render('topics/insomnia')
 })
 
-
-
 module.exports = router;

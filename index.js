@@ -28,16 +28,19 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-//controllers go here
+//controllers
 const users = require('./controllers/users.js');
 const topics = require('./controllers/topics.js')
 const resources = require('./controllers/resources.js')
 const notes = require('./controllers/notes.js')
+const events = require('./controllers/events.js')
+
 app.get('/', (req, res) => res.render('index'));
 
 app.use('/topic', topics)
 app.use('/resources', resources)
 app.use('/notes', notes)
+app.use('/events', events)
 app.use('/', users);
 
-app.listen(port, () => console.log(`Server listening on ${port}`));
+app.listen(port, () => console.log(`Listening on ${port}`));
