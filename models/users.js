@@ -25,4 +25,9 @@ userModel.addTopicToUser = (email, topic) => {
     return db.any("UPDATE users SET topics = ${topic} WHERE email = ${email}", { email, topic })
 }
 
+userModel.pullActions = id => {
+    return db.any('SELECT * FROM action WHERE user_id = ${id}', {id})
+}
+
+
 module.exports = userModel;

@@ -37,7 +37,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account<b class='caret'></b></a>
                         <ul class='dropdown-menu'>
-                            <li class='dropdown-header'>{{user.name}}</li>
+                            <li class='dropdown-header'>{{resData.user.name}}</li>
                             <li><a href="/logout">logout</a></li>
                             <li><a href="#">admin2</a></li>
                             <li class='dropdown-header'>Portfolio</li>
@@ -51,14 +51,101 @@
     </div>
     <div class="container">
         <div class="jumbotron text-center">
-            <h1>PROFILE PAGE</h1>
-            <p>just some filler text up in hurrjust some filler text up in hurrjust some filler text up in hurrjust some filler text up in hurrjust some filler text up in hurr</p>
+            <div class= 'chart-container'>
+                <canvas id="myChart" style='height: 100%'></canvas>
+            </div>
+            <!-- the options were to put this js in the html and add data via mustache, or
+            re-route everything through ajax to get the data into the script.js. both options suck -->
+            <script type="text/javascript">
+            const ctx = document.querySelector("#myChart").getContext("2d");
+            const config = {
+                type: 'line',
+                data: {
+                    labels: [
+                        {{#resData.thisWeek}}
+                            '{{label}}',
+                        {{/resData.thisWeek}}
+                    ],
+                    datasets: [{
+                        label: "Eating Schedule",
+                        backgroundColor: 'rgba(40, 118, 226, .8)',
+                        borderColor: 'rgba(40, 118, 226, .8)',
+                        data: [1, 1, 1, 1, 1, 1, 1],
+                        fill: false,
+                        pointRadius: 10,
+                        pointHoverRadius: 15,
+                        showLine: false
+                    }, {
+                        label: "Meditation",
+                        fill: false,
+                        backgroundColor: 'rgba(72, 190, 255, 1)',
+                        borderColor:  'rgba(72, 190, 255, 1)',
+                        data: [2, 2, 2, 2, 2, 2, 2],
+                        fill: false,
+                        pointRadius: 10,
+                        pointHoverRadius: 15,
+                        showLine: false
+                    }, {
+                        label: "Exercise",
+                        fill: false,
+                        backgroundColor: 'rgba(18, 183, 131, .8)',
+                        borderColor: 'rgba(18, 183, 131, .8)',
+                        data: [3, 3, 3, 3, 3, 3, 3],
+                        fill: false,
+                        pointRadius: 10,
+                        pointHoverRadius: 15,
+                        showLine: false
+                    }]
+                },
+                options: {
+                    layout: {
+                        padding: {
+                            top: 20,
+                            rigth: 15
+                        }
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    },
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            boxWidth: 15
+                        }
+                    },
+                    scaleOverride: true,
+                    scaleSteps: 10,
+                    scaleStepWidth: 20,
+                    scaleStartValue: 0,
+                    scales: {
+                        xAxes: [{
+                            display: true
+                        }],
+                        yAxes: [{
+                            display: false,
+                            ticks: {
+                                beginAtZero: true,
+                                stepSize: 1
+                            }
+                        }]
+                    }
+                }
+            };
+            window.onload = () => new Chart(ctx, config);
+            </script>
         </div>
     </div>
 
     <div class="body">
         <section>
-            <h3>Welcome to your profile, {{user.email}}</h3>
+            <h3>Welcome to your profile, {{resData.user.email}}</h3>
             <div class='user events'>
                 <!-- would need to variablize values here and query the based on topic selected -->
                 <button class='insomnia event' value="eating">ate foods</button>
@@ -70,7 +157,6 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </section>
     </div>
-
     <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
         <div class="container">
             <div class="navbar-text pull-left">
@@ -80,6 +166,8 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
     <script src="js/script.js"></script>
 </body>
 

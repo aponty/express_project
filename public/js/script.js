@@ -1,5 +1,6 @@
 $(() => {
     console.log('linked')
+    console.log(moment().dayOfYear())
 
     $('.topic-select-enter').on('click', e => {
         e.preventDefault();
@@ -54,8 +55,16 @@ $(() => {
     })
 
 
-
-
+    //
+    // $('.container').on('click', el => {
+    //     el.preventDefault();
+    //     console.log('container')
+    //     $.ajax({
+    //         method: "GET",
+    //         url: 'https://data.import.io/extractor/7fd58f2f-690d-487c-a780-6f60367869be/json/latest?_apikey=ccdbd8b9876f4d2baf79a9f29698c20d9f78c56ce91822fda50cfe9586269a58c359724bb375e81e8bf646848d60ab83139a8857812f734d446b71b5b73870c49c8f6091b240ba3c7a47693c22ac68e2',
+    //         success: data => console.log(data)
+    //     })
+    // })
 
 
 

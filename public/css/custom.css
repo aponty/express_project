@@ -23,3 +23,6 @@ body {
     height: 250px;
     text-align: center;
 }
+.jumbotron {
+    height: 50%;
+}
