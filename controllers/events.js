@@ -22,8 +22,9 @@ router.get('/', auth.restrict, (req, res) => {
             //right now it's adding it to the db over and over again. With Oauth there'd be an authenticate step, so I could just do it once then
             //then load just today's every page hit. There will still be repeated lines, but thats only a (very minor) efficiency concern
             const sleepData = data.data.extractorData.data[0].group[0]['New column'][0].text.split(',').map(el => parseFloat(el));
-            console.log(sleepData)
             const sleepDates = pastWeek()
+            //this doesn't work very well. They all fire at once and the return isn't always the last one. Everything gets added to the db, but
+            //it doesn't always render the full return
             sleepData.forEach((record, ind) => eventsModel.addSleepData(id, sleepDates[ind], record))
         })
         .then(data => {
@@ -31,7 +32,9 @@ router.get('/', auth.restrict, (req, res) => {
         })
         .then(data => {
             const resData = {}
+            console.log(data)
             data.slice(-7).forEach(x => resData[moment().dayOfYear(x.day_of_year).format('MMM DD').toString()] = x.quality)
+            console.log(resData)
             res.json(resData)
         })
 })

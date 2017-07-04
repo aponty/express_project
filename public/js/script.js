@@ -1,4 +1,5 @@
 $(() => {
+    console.log('script linked')
     $('.topic-select-enter').on('click', e => {
         e.preventDefault();
         //to expand, would need to make this dynamic
@@ -64,6 +65,28 @@ $(() => {
             success: res => {
                 location.reload();
             }
+        })
+    })
+
+//not done with these routes, going to have to do jquery
+//nonsense to get comments to append to the parent comment
+//since mustache is basic for that sort of thing
+    $('.reply').one('click', e => {
+        const parentComment = $('.reply:focus').attr('data-value')
+        let replyBox = $('<form class="reply-form"><textarea></textarea placeholder="respond away"><button type="submit">Submit</button><form>')
+        $('.reply:focus').append(replyBox)
+        replyBox.on('submit', e => {
+            e.preventDefault();
+            const comment = $('.reply-form>textarea').val()
+            const topic = 'insomnia'
+            $.ajax({
+                method: 'POST',
+                url: '/forum/reply',
+                data: { topic, comment, parentComment },
+                success: res => {
+                    console.log('back in forum ajax', res)
+                }
+            })
         })
     })
 

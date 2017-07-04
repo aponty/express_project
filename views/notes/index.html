@@ -25,7 +25,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/profile">Home</a></li>
-                    <li><a href="/notes">Notes</a></li>
+                    <li class='active'><a href="/notes">Notes</a></li>
                     <li><a href="/forum">Forum</a></li>
                     <li><a href="/topic">Add Topic</a></li>
                     <li><a href="/resources">Resources</a></li>
@@ -43,34 +43,19 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="jumbotron text-center">
-            <h1>Notes Page</h1>
-            <p>just some filler text up in hurrjust some filler text up in hurrjust some filler text up in hurrjust some filler text up in hurrjust some filler text up in hurr</p>
+
+    <div class='row'>
+        <div class="col-sm-6 col-sm-offset-3">
+            <h3><a href="/notes/new">Add a new note</a></h3>
         </div>
     </div>
-
-    <div>
-        <h3><a href="/notes/new">Add a new note</a></h3>
-        <p>NEED TO FIGURE OUT HOW YOU"RE GOING TO ORGAINIZE AND DISPLAY THIS SHIT also the page don't scroll no good</p>
-
-        {{#data}}
-        <div>
+    {{#data}}
+    <div class='row'>
+        <div class="col-sm-6 col-sm-offset-3">
             <p>{{note}} : {{event_time}} ------<button class='delete' value="{{note}}">Delete</button></p>
         </div>
-        {{/data}}
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-        irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
+    {{/data}}
     <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
         <div class="container">
             <div class="navbar-text pull-left">

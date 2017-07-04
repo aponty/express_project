@@ -3,7 +3,7 @@ const db = require('../models/setup');
 const forumModel = {}
 
 forumModel.pullAllByTopic = topic => {
-    return db.any('SELECT comment, event_time, email FROM comments, users WHERE users.user_id = comments.user_id AND topic_name = ${topic}',
+    return db.any('SELECT comment, event_time, email, comment_id FROM comments, users WHERE users.user_id = comments.user_id AND topic_name = ${topic}',
     { topic });
 };
 

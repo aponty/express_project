@@ -53,7 +53,7 @@
                 <canvas id="myChart" style='height: 65%'></canvas>
             </div>
             <!-- the options were to put this js in the html and add data via mustache, or
-            re-route everything through ajax to get the data into the script.js, doubling the load time. both options suck -->
+            re-route everything through ajax to get the data into the script.js, doubling the load time. Tried the second option for the second chart. Both options suck. I need a better template engine -->
             <script type="text/javascript">
                 const ctx = document.querySelector("#myChart").getContext("2d");
                 const config = {
@@ -153,48 +153,25 @@
             </script>
         </div>
         <div class="row">
-            <div class="col-md-4">
-                <h1>Hello</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a href="#" class='btn btn-primary'>hello</a>
+            <div class="col-sm-4">
+                <button class='btn btn-primary insomnia event' value="eating">Ate (before 11)</button>
             </div>
-
-
-            <div class="col-md-4">
-                <h1>Hello</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a href="#" class='btn btn-primary'>hello</a>
+            <div class="col-sm-4">
+                <button class='btn btn-primary insomnia event' value="exercise">Exercised!</button>
             </div>
-
-
-            <div class="col-md-4">
-                <h1>Hello</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <a href="#" class='btn btn-primary'>hello</a>
+            <div class="col-sm-4">
+                <button class='btn btn-primary insomnia event' value="meditate">Meditated!</button>
             </div>
         </div>
     </div>
-
-
-
-
-
-    <!-- <section>
-        <h3>Welcome to your profile, {{resData.user.email}}</h3>
-        <div class='user events'> -->
-            <!-- would need to variablize values here and query the based on topic selected -->
-            <!-- <button class='insomnia event' value="eating">Ate dinner (before eleven)</button>
-            <button class='insomnia event' value="exercise">Exercised!</button>
-            <button class='insomnia event' value="meditate">Meditated!</button>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Hello, {{resData.user.email}}</h3>
+            <p> Log events to track your actions. See how it affects your actual sleep quality.</p>
+            <p> Check out the resources section for some info on disease patterns, or head to the forum if you need to commiserate</p>
         </div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-            irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </section> -->
-    <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+    </div>
+    <div class="navbar navbar-fixed-bottom" role="navigation">
         <div class="container">
             <div class="navbar-text pull-left">
                 <p>copyright never</p>
