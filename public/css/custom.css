@@ -67,14 +67,20 @@
 
 .col-sm-6.col-sm-offset-3 {
     border: 2px solid lightgrey;
-
 }
 
 .col-sm-6.col-sm-offset-3 > section > ul {
     list-style-type: none;
     padding: 0;
 }
+.col-sm-6.col-sm-offset-3.resources {
+    text-align: left;
+    margin-bottom: 65px;
+}
 
+.col-sm-6.col-sm-offset-3.resources > h1 {
+    text-align: center;
+}
 body {
     padding-top: 70px;
     text-align: center;
