@@ -26,7 +26,7 @@ userModel.addTopicToUser = (email, topic) => {
 }
 
 userModel.pullActions = id => {
-    return db.any('SELECT * FROM action WHERE user_id = ${id}', {id})
+    return db.any('SELECT * FROM actions WHERE user_id = ${id}', {id})
 }
 
 

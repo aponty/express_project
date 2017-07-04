@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
@@ -28,19 +29,13 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-//controllers
-const users = require('./controllers/users.js');
-const topics = require('./controllers/topics.js')
-const resources = require('./controllers/resources.js')
-const notes = require('./controllers/notes.js')
-const events = require('./controllers/events.js')
-
 app.get('/', (req, res) => res.render('index'));
 
-app.use('/topic', topics)
-app.use('/resources', resources)
-app.use('/notes', notes)
-app.use('/events', events)
-app.use('/', users);
+app.use('/topic', require('./controllers/topics.js'))
+app.use('/resources', require('./controllers/resources.js'))
+app.use('/notes', require('./controllers/notes.js'))
+app.use('/forum', require('./controllers/forum'))
+app.use('/events', require('./controllers/events.js'))
+app.use('/', require('./controllers/users.js'));
 
 app.listen(port, () => console.log(`Listening on ${port}`));

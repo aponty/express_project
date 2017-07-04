@@ -3,7 +3,7 @@ const db = require('../models/setup');
 const notesModel = {}
 
 notesModel.pullAllByID= id => {
-    return db.any('select note, topic_name, event_time from users, main where users.user_id = main.user_id AND main.user_id = ${id}', {id});
+    return db.any('SELECT note, topic_name, event_time FROM users, main WHERE users.user_id = main.user_id AND main.user_id = ${id}', {id});
 };
 
 notesModel.addOne = (topic, note, user_id) => {
