@@ -2,19 +2,19 @@ $(() => {
     console.log('charts script')
     const chart = document.querySelector('#sleepRecords').getContext('2d')
 
-    // $.ajax({
-    //     method: 'GET',
-    //     url: '/events',
-    //     success: res => {
-    //         console.log(res)
-    //         const dates = Object.keys(res)
-    //         const values = Object.values(res)
-    //         config.data.labels = dates
-    //         config.data.datasets[0].data = values
-    //         console.log(config.data.labels, config.data.datasets[0].data)
-    //         new Chart(chart, config)
-    //     }
-    // })
+    $.ajax({
+        method: 'GET',
+        url: '/events',
+        success: res => {
+            console.log(res)
+            const dates = Object.keys(res)
+            const values = Object.values(res)
+            config.data.labels = dates
+            config.data.datasets[0].data = values
+            console.log(config.data.labels, config.data.datasets[0].data)
+            new Chart(chart, config)
+        }
+    })
 
     const config = {
         type: 'line',
@@ -70,9 +70,9 @@ $(() => {
         }
     };
 
-
-    config.data.labels = ["Jun 27", "Jun 28", "Jun 29", "Jun 30", "Jul 01", 'Jul 2', 'Jul 3']
-    config.data.datasets[0].data = [1, 0, 2, 4, 2, 5, 4]
-    new Chart(chart, config)
+    //to save API calls while testing
+    // config.data.labels = ["Jun 27", "Jun 28", "Jun 29", "Jun 30", "Jul 01", 'Jul 2', 'Jul 3']
+    // config.data.datasets[0].data = [1, 0, 2, 4, 2, 5, 4]
+    // new Chart(chart, config)
     //jquery
 })
